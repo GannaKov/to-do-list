@@ -74,22 +74,22 @@ function onItemClick(e) {
   ) {
     if (e.target.classList.contains("wbs-btn__delete")) {
       const item = e.currentTarget;
-      Notiflix.Confirm.show(
-        "Notiflix Confirm",
-        "Are you sure??",
-        "Yes",
-        "No",
-        okCb(item),
-        function cancelCb() {
-          alert("If you say so...");
-        },
-        {
-          width: "320px",
-          borderRadius: "8px",
-          // etc...
-        }
-      );
-      // deleteTask(e.currentTarget);
+      // Notiflix.Confirm.show(
+      //   "Notiflix Confirm",
+      //   "Are you sure??",
+      //   "Yes",
+      //   "No",
+      //   okCb(item),
+      //   function cancelCb() {
+      //     alert("If you say so...");
+      //   },
+      //   {
+      //     width: "320px",
+      //     borderRadius: "8px",
+      //     // etc...
+      //   }
+      // );
+      deleteTask(e.currentTarget);
     }
     if (e.target.classList.contains("wbs-btn__edit")) {
       editTask(e.currentTarget);
