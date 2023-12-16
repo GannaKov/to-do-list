@@ -107,7 +107,6 @@ function editTask(item) {
 //------------
 function okCb(item) {
   return function () {
-    // Ваша логика здесь, используя параметр
     deleteTask(item);
   };
 }
