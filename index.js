@@ -1,3 +1,6 @@
+//import { Report } from "./node_modules/notiflix/build/notiflix-report-aio";
+
+//import { Report } from "notiflix/build/notiflix-report-aio";
 const toDoList = [];
 
 const form = document.querySelector(".wbs-form");
@@ -25,16 +28,29 @@ function onSubmitClick(e) {
 
 function renderTask() {
   list.innerHTML = "";
-  console.log("in render", toDoList);
+
   const markup = toDoList
     .map(
-      (item, index) => ` <li class="wbs-item" data-ind=${index}>
+      (item, index) => `<li class="wbs-item" data-ind=${index}>
             <div class="wbs-card">
-              <h2 class="wbs-item__title">${item.name}</h2>
-              <p class="wbs-item__text">${item.task}</p>
+              <div class="wbs-inn_wrp">
+                <h2 class="wbs-item__title">${item.name}</h2>
+                <!-- <label class="wbs-checkBox"> -->
+                <input type="checkbox" name="status" />
+                <!-- </label> -->
+              </div>
+              <div class="wbs-cardBottom">
+                <p class="wbs-item__text">${item.task}</p>
+                <div class="wbs-btn_wrp">
+                  <button type="button" class="wbs-btn__bottom wbs-btn__edit">
+                    Edit
+                  </button>
+                  <button type="button" class="wbs-btn__bottom wbs-btn__delete">
+                    Delete
+                  </button>
+                </div>
+              </div>
             </div>
-            <button type="button" class="wbs-btn__edit" data-ind=${index}>Edit</button>
-            <button type="button" class="wbs-btn__delete" data-ind=${index}>Delete</button>
           </li>`
     )
     .join("");
@@ -57,11 +73,21 @@ function deleteTask(item) {
 }
 
 function onItemClick(e) {
-  if (e.target.className === "wbs-btn__delete") {
-    deleteTask(e.currentTarget);
-  }
-  if (e.target.className === "wbs-btn__edit") {
-    editTask(e.currentTarget);
+  if (
+    e.target.classList.contains("wbs-btn__delete") ||
+    e.target.classList.contains("wbs-btn__edit")
+  ) {
+    if (e.target.classList.contains("wbs-btn__delete")) {
+      //   Report.warning(
+      //     "Notiflix Warning",
+      //     '"The peoples who want to live comfortably without producing and fatigue; they are doomed to lose their dignity, then liberty, and then independence and destiny." <br/><br/>- Mustafa Kemal Ataturk',
+      //     "Okay"
+      //   );
+      deleteTask(e.currentTarget);
+    }
+    if (e.target.classList.contains("wbs-btn__edit")) {
+      editTask(e.currentTarget);
+    }
   }
 }
 function editTask(item) {

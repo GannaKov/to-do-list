@@ -21,24 +21,95 @@
   margin-bottom: 1rem;
 }
 .wbs-input {
+  padding: 0.5rem;
+  height: 30px;
+  outline: 1px solid transparent;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+.wbs-textArea {
+  resize: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+  outline: 1px solid transparent;
+}
+.wbs-input:is(:focus, :hover),
+.wbs-textArea:is(:focus, :hover) {
+  border: 1px solid rgb(58, 58, 209);
 }
 .wbs-btn {
   width: 80px;
+  height: 40px;
+  border-radius: 5px;
   color: white;
   background-color: blue;
   outline: 1px solid transparent;
-  border: 1px solid transparent;
+  border: 1px solid blue;
   margin: 0 auto;
 }
-
+.wbs-btn:is(:focus, :hover) {
+  background-color: rgb(16, 16, 129);
+  border: 1px solid rgb(16, 16, 129);
+}
+.wbs-item {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  border: 0.5px solid gray;
+  border-radius: 5px;
+  padding: 1rem;
+}
+.wbs-item:not(:last-child) {
+  margin-bottom: 2rem;
+}
+.wbs-inn_wrp {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
 .wbs-card {
 }
 .wbs-list {
   margin: 0 auto;
 }
-.wbs-item {
+.wbs-checkBox {
 }
 .wbs-item__title {
+  margin: 0 auto;
 }
 .wbs-item__text {
+}
+.wbs-cardBottom {
+  display: flex;
+  justify-content: space-between;
+}
+.wbs-btn_wrp {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.wbs-btn__edit {
+  border: 1px solid green;
+  color: white;
+  background-color: green;
+  width: 50px;
+}
+.wbs-btn__edit:is(:focus, :hover) {
+  background-color: rgb(14, 91, 14);
+  border-color: rgb(14, 91, 14);
+}
+.wbs-btn__delete {
+  border: 1px solid red;
+  color: white;
+  background-color: red;
+  width: 60px;
+}
+.wbs-btn__delete:is(:focus, :hover) {
+  background-color: rgb(154, 18, 18);
+  border-color: rgb(154, 18, 18);
+}
+.wbs-btn__bottom {
+  outline: 1px solid transparent;
+  height: 30px;
+  border-radius: 5px;
 }
