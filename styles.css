@@ -1,0 +1,44 @@
+.wbs-section {
+  display: flex;
+  flex-direction: column;
+}
+.wbs-form__wrp {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+.wbs-form {
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+}
+.wbs-form_div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+.wbs-label {
+  margin-bottom: 1rem;
+}
+.wbs-input {
+}
+.wbs-btn {
+  width: 80px;
+  color: white;
+  background-color: blue;
+  outline: 1px solid transparent;
+  border: 1px solid transparent;
+  margin: 0 auto;
+}
+
+.wbs-card {
+}
+.wbs-list {
+  margin: 0 auto;
+}
+.wbs-item {
+}
+.wbs-item__title {
+}
+.wbs-item__text {
+}
