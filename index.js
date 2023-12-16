@@ -1,9 +1,3 @@
-//import { Report } from "./node_modules/notiflix/build/notiflix-report-aio";
-//import { Notify } from "notiflix/build/notiflix-notify-aio";
-
-//import { Report } from "notiflix/build/notiflix-report-aio";
-//import { mes } from "./edit.js";
-//import Toastify from "toastify-js";
 const toDoList = [];
 
 const form = document.querySelector(".wbs-form");
@@ -59,8 +53,6 @@ function renderTask() {
     .join("");
   list.insertAdjacentHTML("beforeend", markup);
   addListener();
-  //   const editBtn = document.querySelector(".wbs-btn__edit");
-  //   const deleteBtn = document.querySelector(".wbs-btn__delete");
 }
 function addListener() {
   if (toDoList.length != 0) {
@@ -81,12 +73,23 @@ function onItemClick(e) {
     e.target.classList.contains("wbs-btn__edit")
   ) {
     if (e.target.classList.contains("wbs-btn__delete")) {
-      // Report.warning(
-      //   "Notiflix Warning",
-      //   '"The peoples who want to live comfortably without producing and fatigue; they are doomed to lose their dignity, then liberty, and then independence and destiny." <br/><br/>- Mustafa Kemal Ataturk',
-      //   "Okay"
-      // );
-      deleteTask(e.currentTarget);
+      const item = e.currentTarget;
+      Notiflix.Confirm.show(
+        "Notiflix Confirm",
+        "Are you sure??",
+        "Yes",
+        "No",
+        okCb(item),
+        function cancelCb() {
+          alert("If you say so...");
+        },
+        {
+          width: "320px",
+          borderRadius: "8px",
+          // etc...
+        }
+      );
+      // deleteTask(e.currentTarget);
     }
     if (e.target.classList.contains("wbs-btn__edit")) {
       editTask(e.currentTarget);
@@ -100,4 +103,11 @@ function editTask(item) {
   taskNameInput.value = title.textContent;
   taskInput.value = task.textContent;
   toDoList.splice(item.dataset.ind, 1);
+}
+//------------
+function okCb(item) {
+  return function () {
+    // Ваша логика здесь, используя параметр
+    deleteTask(item);
+  };
 }
