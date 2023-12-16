@@ -1,5 +1,15 @@
 {
+  "name": "to-do-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "notiflix": "^3.2.6"
+    "notiflix": "^3.2.6",
+    "toastify-js": "^1.12.0"
   }
 }

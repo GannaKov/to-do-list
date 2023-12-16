@@ -1,6 +1,9 @@
 //import { Report } from "./node_modules/notiflix/build/notiflix-report-aio";
+//import { Notify } from "notiflix/build/notiflix-notify-aio";
 
 //import { Report } from "notiflix/build/notiflix-report-aio";
+//import { mes } from "./edit.js";
+//import Toastify from "toastify-js";
 const toDoList = [];
 
 const form = document.querySelector(".wbs-form");
@@ -78,11 +81,11 @@ function onItemClick(e) {
     e.target.classList.contains("wbs-btn__edit")
   ) {
     if (e.target.classList.contains("wbs-btn__delete")) {
-      //   Report.warning(
-      //     "Notiflix Warning",
-      //     '"The peoples who want to live comfortably without producing and fatigue; they are doomed to lose their dignity, then liberty, and then independence and destiny." <br/><br/>- Mustafa Kemal Ataturk',
-      //     "Okay"
-      //   );
+      // Report.warning(
+      //   "Notiflix Warning",
+      //   '"The peoples who want to live comfortably without producing and fatigue; they are doomed to lose their dignity, then liberty, and then independence and destiny." <br/><br/>- Mustafa Kemal Ataturk',
+      //   "Okay"
+      // );
       deleteTask(e.currentTarget);
     }
     if (e.target.classList.contains("wbs-btn__edit")) {
@@ -91,6 +94,7 @@ function onItemClick(e) {
   }
 }
 function editTask(item) {
+  //mes();
   const title = item.querySelector(".wbs-item__title");
   const task = item.querySelector(".wbs-item__text");
   taskNameInput.value = title.textContent;
