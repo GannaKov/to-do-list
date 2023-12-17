@@ -79,6 +79,7 @@
 .wbs-inn_wrp {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 2rem;
 }
 .wbs-card {
@@ -89,6 +90,27 @@
 .wbs-item__title {
   margin: 0 auto;
 }
+.wbs-item__checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 25px;
+  height: 25px;
+  border-radius: 2px;
+  border: 1px dotted rgb(172, 170, 170);
+  cursor: pointer;
+}
+.checkbox-icon {
+  width: 35px;
+  fill: green;
+  display: none;
+}
+
+.checked .checkbox-icon {
+  display: block;
+}
+
 .wbs-item__text {
   margin-bottom: 1rem;
   @media screen and (min-width: 500px) {

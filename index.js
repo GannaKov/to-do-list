@@ -16,7 +16,7 @@ function onSubmitClick(e) {
   if (taskName.value.trim() === "" || task.value.trim() === "") {
     alert("Please fill the form before submitting.");
   } else {
-    toDoList.push({ name: taskName.value, task: task.value });
+    toDoList.push({ name: taskName.value, task: task.value, checked: false });
     renderTask();
     taskName.value = "";
     task.value = "";
@@ -28,12 +28,23 @@ function renderTask() {
 
   const markup = toDoList
     .map(
-      (item, index) => `<li class="wbs-item" data-ind=${index}>
+      (item, index) => `<li class="wbs-item ${
+        item.checked ? "checked" : ""
+      }" data-ind=${index}>
             <div class="wbs-card">
               <div class="wbs-inn_wrp">
                 <h2 class="wbs-item__title">${item.name}</h2>
+                <span class="wbs-item__checkbox checkbox">
+                 <svg
+              class="checkbox-icon checkbox"
+              viewBox="0 0 32 32"
+              style="width: 20px"
+            >
+              <path class="checkbox" d="M27 4l-15 15-7-7-5 5 12 12 20-20z"></path>
+            </svg>
+                </span>
                 <!-- <label class="wbs-checkBox"> -->
-                <input type="checkbox" name="status" />
+               <!-- <input type="checkbox" class="wbs-item__checkbox" name="status" />-->
                 <!-- </label> -->
               </div>
               <div class="wbs-cardBottom">
@@ -61,13 +72,10 @@ function addListener() {
   }
 }
 
-function deleteTask(item) {
-  item.remove();
-  toDoList.splice(item.dataset.ind, 1);
-  renderTask();
-}
-
 function onItemClick(e) {
+  if (e.target.classList.contains("checkbox")) {
+    checkBoxToggle(e.currentTarget);
+  }
   if (
     e.target.classList.contains("wbs-btn__delete") ||
     e.target.classList.contains("wbs-btn__edit")
@@ -96,6 +104,13 @@ function onItemClick(e) {
     }
   }
 }
+
+function deleteTask(item) {
+  item.remove();
+  toDoList.splice(item.dataset.ind, 1);
+  renderTask();
+}
+
 function editTask(item) {
   //mes();
   const title = item.querySelector(".wbs-item__title");
@@ -109,4 +124,10 @@ function okCb(item) {
   return function () {
     deleteTask(item);
   };
+}
+function checkBoxToggle(item) {
+  item.classList.toggle("checked");
+  item.classList.contains("checked")
+    ? (toDoList[item.dataset.ind].checked = true)
+    : (toDoList[item.dataset.ind].checked = false);
 }
