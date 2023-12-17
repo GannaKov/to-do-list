@@ -1,17 +1,23 @@
 .wbs-section {
   display: flex;
   flex-direction: column;
+  padding: 1rem;
 }
-.wbs-form__wrp {
+/* .wbs-form__wrp {
   display: flex;
   justify-content: center;
   margin-bottom: 3rem;
-}
+} */
 .wbs-form {
-  width: 700px;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  margin: 0 auto 3rem;
+  @media screen and (min-width: 800px) {
+    width: 700px;
+  }
 }
+
 .wbs-form_div {
   display: flex;
   flex-direction: column;
@@ -54,10 +60,13 @@
 .wbs-item {
   display: flex;
   flex-direction: column;
-  width: 400px;
+  width: 100%;
   border: 0.5px solid gray;
   border-radius: 5px;
   padding: 1rem;
+  @media screen and (min-width: 800px) {
+    width: 400px;
+  }
 }
 .wbs-item:not(:last-child) {
   margin-bottom: 2rem;
@@ -78,15 +87,27 @@
   margin: 0 auto;
 }
 .wbs-item__text {
+  margin-bottom: 1rem;
+  @media screen and (min-width: 800px) {
+    margin-bottom: 0;
+  }
 }
 .wbs-cardBottom {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
+  @media screen and (min-width: 800px) {
+    flex-direction: row;
+  }
 }
 .wbs-btn_wrp {
   display: flex;
+  justify-content: center;
   gap: 0.5rem;
-  align-items: center;
+
+  @media screen and (min-width: 800px) {
+    align-items: center;
+  }
 }
 .wbs-btn__edit {
   border: 1px solid green;
