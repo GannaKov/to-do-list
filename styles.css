@@ -1,13 +1,12 @@
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 .wbs-section {
   max-width: 1200px;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   padding: 1rem;
+  justify-content: center;
+  @media screen and (min-width: 1200px) {
+    width: 1200px;
+  }
 }
 /* .wbs-form__wrp {
   display: flex;
@@ -64,20 +63,21 @@ main {
   border: 1px solid rgb(16, 16, 129);
 }
 .wbs-list {
+  width: 100%;
   @media screen and (min-width: 500px) {
-    margin: 0 auto;
+    width: 400px;
+  }
+  @media screen and (min-width: 800px) {
+    width: 500px;
   }
 }
 .wbs-item {
   display: flex;
   flex-direction: column;
-  width: 100%;
+
   border: 0.5px solid gray;
   border-radius: 5px;
   padding: 1rem;
-  @media screen and (min-width: 500px) {
-    width: 400px;
-  }
 }
 .wbs-item:not(:last-child) {
   margin-bottom: 2rem;
