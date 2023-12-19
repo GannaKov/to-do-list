@@ -4,7 +4,12 @@ const form = document.querySelector(".wbs-form");
 const taskNameInput = document.querySelector("#task_name");
 const taskInput = document.querySelector("#task");
 //--------------------
-form.addEventListener("submit", onSubmitClick);
+document.addEventListener("DOMContentLoaded", formControl());
+
+function formControl() {
+  form.addEventListener("submit", onSubmitClick);
+}
+
 const list = document.querySelector(".wbs-list");
 
 function onSubmitClick(e) {
@@ -20,6 +25,7 @@ function onSubmitClick(e) {
     renderTask();
     taskName.value = "";
     task.value = "";
+    localStorage.setItem("toDoList", JSON.stringify(toDoList));
   }
 }
 
@@ -32,6 +38,7 @@ function renderTask() {
         item.checked ? "checked" : ""
       }" data-ind=${index}>
             <div class="wbs-card">
+            <button class="wbs-openTask__btn" type="button">Open Task</button>
               <div class="wbs-inn_wrp">
                 <h2 class="wbs-item__title">${item.name}</h2>
                 <span class="wbs-item__checkbox checkbox">
@@ -73,6 +80,9 @@ function addListener() {
 }
 
 function onItemClick(e) {
+  if (e.target.classList.contains("wbs-openTask__btn")) {
+    openTask(e.currentTarget);
+  }
   if (e.target.classList.contains("checkbox")) {
     checkBoxToggle(e.currentTarget);
   }
@@ -108,6 +118,7 @@ function onItemClick(e) {
 function deleteTask(item) {
   item.remove();
   toDoList.splice(item.dataset.ind, 1);
+  localStorage.setItem("toDoList", JSON.stringify(toDoList));
   renderTask();
 }
 
@@ -118,6 +129,7 @@ function editTask(item) {
   taskNameInput.value = title.textContent;
   taskInput.value = task.textContent;
   toDoList.splice(item.dataset.ind, 1);
+  localStorage.setItem("toDoList", JSON.stringify(toDoList));
 }
 //------------
 function okCb(item) {
@@ -130,4 +142,26 @@ function checkBoxToggle(item) {
   item.classList.contains("checked")
     ? (toDoList[item.dataset.ind].checked = true)
     : (toDoList[item.dataset.ind].checked = false);
+  localStorage.setItem("toDoList", JSON.stringify(toDoList));
+}
+function openTask(item) {
+  window.location.href = `./task.html?id=${Number(item.dataset.ind) + 1}`;
+}
+//---------------
+//
+// var dropdownElementList = [].slice.call(
+//   document.querySelectorAll(".dropdown-toggle")
+// );
+// var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+//   return new bootstrap.Dropdown(dropdownToggleEl);
+// });
+
+const myDropdownMenu = document.querySelector(".dropdown-menu");
+const dropdown = document.querySelector(".dropdown");
+myDropdownMenu.addEventListener("click", onDropdownClick);
+
+function onDropdownClick(e) {
+  console.log(e.target.textContent);
+  // bootstrap.Dropdown.getInstance(element);
+  console.log(bootstrap.Dropdown.getInstance());
 }
