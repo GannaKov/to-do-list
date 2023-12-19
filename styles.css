@@ -1,11 +1,10 @@
 .wbs-section {
-  max-width: 1200px;
   display: flex;
-  /* flex-direction: column; */
+
   padding: 1rem;
   justify-content: center;
   @media screen and (min-width: 1200px) {
-    width: 1200px;
+    /* width: 1200px; */
   }
 }
 /* .wbs-form__wrp {
@@ -77,7 +76,7 @@
 
   border: 0.5px solid gray;
   border-radius: 5px;
-  padding: 1rem;
+  padding: 1rem 1rem 2rem;
 }
 .wbs-item:not(:last-child) {
   margin-bottom: 2rem;
@@ -86,7 +85,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 .wbs-card {
 }

@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", formControl());
 function arrControl() {
   const savedToDoList = JSON.parse(localStorage.getItem("toDoList"));
   toDoList = savedToDoList?.length ? [...savedToDoList] : [];
-  console.log("1", toDoList);
-  toDoList.length > 0 && renderTask();
+
+  toDoList.length > 0 && renderTask(toDoList);
 }
 arrControl();
 //--------------------
@@ -28,17 +28,18 @@ function onSubmitClick(e) {
     alert("Please fill the form before submitting.");
   } else {
     toDoList.push({ name: taskName.value, task: task.value, checked: false });
-    renderTask();
+    console.log("1", toDoList);
+    renderTask(toDoList);
     taskName.value = "";
     task.value = "";
     localStorage.setItem("toDoList", JSON.stringify(toDoList));
   }
 }
 
-function renderTask() {
+function renderTask(arr) {
   list.innerHTML = "";
-
-  const markup = toDoList
+  console.log("arr", arr);
+  const markup = arr
     .map(
       (item, index) => `<li class="wbs-item ${
         item.checked ? "checked" : ""
@@ -76,10 +77,10 @@ function renderTask() {
     )
     .join("");
   list.insertAdjacentHTML("beforeend", markup);
-  addListener();
+  addListener(arr);
 }
-function addListener() {
-  if (toDoList.length != 0) {
+function addListener(arr) {
+  if (arr.length != 0) {
     const taskitems = document.querySelectorAll(".wbs-item");
     taskitems.forEach((btn) => btn.addEventListener("click", onItemClick));
   }
@@ -92,40 +93,40 @@ function onItemClick(e) {
   if (e.target.classList.contains("checkbox")) {
     checkBoxToggle(e.currentTarget);
   }
-  if (
-    e.target.classList.contains("wbs-btn__delete") ||
-    e.target.classList.contains("wbs-btn__edit")
-  ) {
-    if (e.target.classList.contains("wbs-btn__delete")) {
-      const item = e.currentTarget;
-      Notiflix.Confirm.show(
-        "Notiflix Confirm",
-        "Are you sure??",
-        "Yes",
-        "No",
-        okCb(item),
-        function cancelCb() {
-          alert("If you say so...");
-        },
-        {
-          width: "320px",
-          borderRadius: "8px",
-          // etc...
-        }
-      );
-      //  deleteTask(e.currentTarget);
-    }
-    if (e.target.classList.contains("wbs-btn__edit")) {
-      editTask(e.currentTarget);
-    }
+  // if (
+  //   e.target.classList.contains("wbs-btn__delete") ||
+  //   e.target.classList.contains("wbs-btn__edit")
+  // ) {
+  if (e.target.classList.contains("wbs-btn__delete")) {
+    const item = e.currentTarget;
+    Notiflix.Confirm.show(
+      "Notiflix Confirm",
+      "Are you sure??",
+      "Yes",
+      "No",
+      okCb(item),
+      function cancelCb() {
+        alert("If you say so...");
+      },
+      {
+        width: "320px",
+        borderRadius: "8px",
+        // etc...
+      }
+    );
+    //  deleteTask(e.currentTarget);
+  }
+  if (e.target.classList.contains("wbs-btn__edit")) {
+    editTask(e.currentTarget);
   }
 }
+// }
 
 function deleteTask(item) {
   item.remove();
   toDoList.splice(item.dataset.ind, 1);
   localStorage.setItem("toDoList", JSON.stringify(toDoList));
-  renderTask();
+  renderTask(toDoList);
 }
 
 function editTask(item) {
@@ -168,6 +169,18 @@ myDropdownMenu.addEventListener("click", onDropdownClick);
 
 function onDropdownClick(e) {
   console.log(e.target.textContent);
-  // bootstrap.Dropdown.getInstance(element);
-  console.log(bootstrap.Dropdown.getInstance());
+
+  if (e.target.getAttribute("id") === "all") {
+    renderTask(toDoList);
+  }
+  if (e.target.getAttribute("id") === "done") {
+    const filteredArr = toDoList.filter((item) => item.checked === true);
+
+    renderTask(filteredArr);
+  }
+  if (e.target.getAttribute("id") === "not_done") {
+    const filteredArr = toDoList.filter((item) => item.checked === false);
+
+    renderTask(filteredArr);
+  }
 }
