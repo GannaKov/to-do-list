@@ -1,3 +1,6 @@
+body {
+  font-family: "Roboto";
+}
 .wbs-container {
   margin-top: 3rem;
   width: 100%;
@@ -41,11 +44,14 @@
 .wbsGoBack-link {
   display: flex;
   align-items: center;
-  font-family: "Source Sans 3", sans-serif;
-  font-size: 1.3rem;
+  /* font-family: "Source Sans 3", sans-serif; */
+  font-size: 1.1rem;
   color: green;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .wbsGoBack-link:is(:hover, :focus) {
   color: white;
+}
+.wbs-openTask__btn {
+  font-size: 0.9rem;
 }

@@ -1,3 +1,6 @@
+body {
+  font-family: "Roboto";
+}
 .wbs-section {
   display: flex;
 
@@ -6,6 +9,13 @@
   @media screen and (min-width: 1200px) {
     /* width: 1200px; */
   }
+}
+.dropdown {
+  font-size: 1.1rem;
+  width: 159px;
+}
+.dropdown-toggle {
+  width: 100%;
 }
 /* .wbs-form__wrp {
   display: flex;
@@ -17,6 +27,7 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto 3rem;
+  font-size: 1rem;
   @media screen and (min-width: 800px) {
     width: 700px;
   }
@@ -56,6 +67,7 @@
   outline: 1px solid transparent;
   border: 1px solid blue;
   margin: 0 auto;
+  font-size: 1.1rem;
 }
 .wbs-btn:is(:focus, :hover) {
   background-color: rgb(16, 16, 129);
@@ -85,7 +97,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 .wbs-card {
 }
@@ -93,8 +105,12 @@
   outline: 1px solid transparent;
   background-color: white;
   border-radius: 10%;
+  border: 1px solid rgb(65, 62, 62);
   color: green;
-  margin-bottom: 0.5rem;
+  /* margin-bottom: 0.5rem; */
+  font-size: 0.9rem;
+  height: 36px;
+  width: 100px;
 }
 .wbs-openTask__btn:is(:focus, :hover) {
   color: white;
