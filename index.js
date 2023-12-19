@@ -1,16 +1,22 @@
-const toDoList = [];
-
+let toDoList = [];
 const form = document.querySelector(".wbs-form");
+const list = document.querySelector(".wbs-list");
 const taskNameInput = document.querySelector("#task_name");
 const taskInput = document.querySelector("#task");
-//--------------------
 document.addEventListener("DOMContentLoaded", formControl());
+
+function arrControl() {
+  const savedToDoList = JSON.parse(localStorage.getItem("toDoList"));
+  toDoList = savedToDoList?.length ? [...savedToDoList] : [];
+  console.log("1", toDoList);
+  toDoList.length > 0 && renderTask();
+}
+arrControl();
+//--------------------
 
 function formControl() {
   form.addEventListener("submit", onSubmitClick);
 }
-
-const list = document.querySelector(".wbs-list");
 
 function onSubmitClick(e) {
   e.preventDefault();
