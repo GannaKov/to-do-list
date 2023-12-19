@@ -1,12 +1,12 @@
 const savedToDoList = JSON.parse(localStorage.getItem("toDoList"));
+const oneTask = document.querySelector(".wbs-container");
+
 function renderTask() {
   const params = new URLSearchParams(window.location.search);
-  console.log(params);
-  const id = Number(params.get("id")) - 1;
-  console.log(id);
-  console.log(savedToDoList[id]);
 
-  const markup = `<li class="wbs-item ${
+  const id = Number(params.get("id")) - 1;
+
+  const markup = `<div class="wbs-item ${
     savedToDoList[id].checked ? "checked" : ""
   }" data-ind=${id}>
               <div class="wbs-card">
@@ -35,20 +35,8 @@ function renderTask() {
                   </div>
                 </div>
               </div>
-            </li>`;
-
-  console.log(markup);
+            </div>`;
+  oneTask.insertAdjacentHTML("afterbegin", markup);
 }
 
 renderTask();
-// function getParameterByName(name, url) {
-//   if (!url) url = window.location.href;
-
-//   const regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-//     results = regex.exec(url);
-
-//   if (!results) return null;
-//   if (!results[2]) return "";
-
-//   return decodeURIComponent(results[2].replace(/\+/g, " "));
-// }
