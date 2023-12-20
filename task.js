@@ -10,7 +10,7 @@ function renderTask() {
     savedToDoList[id].checked ? "checked" : ""
   }" data-ind=${id}>
               <div class="wbs-card">
-              <button class="wbs-openTask__btn" type="button">Open Task</button>
+              
                 <div class="wbs-inn_wrp">
                   <h2 class="wbs-item__title">${savedToDoList[id].name}</h2>
                   <span class="wbs-item__checkbox checkbox">

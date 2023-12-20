@@ -6,10 +6,8 @@ body {
 
   padding: 1rem;
   justify-content: center;
-  @media screen and (min-width: 1200px) {
-    /* width: 1200px; */
-  }
 }
+
 .dropdown {
   font-size: 1.1rem;
   width: 159px;
@@ -28,11 +26,12 @@ body {
   flex-direction: column;
   margin: 0 auto 3rem;
   font-size: 1rem;
-  @media screen and (min-width: 800px) {
+}
+@media only screen and (min-width: 800px) {
+  .wbs-form {
     width: 700px;
   }
 }
-
 .wbs-form_div {
   display: flex;
   flex-direction: column;
@@ -75,10 +74,14 @@ body {
 }
 .wbs-list {
   width: 100%;
-  @media screen and (min-width: 500px) {
+}
+@media screen and (min-width: 500px) {
+  .wbs-list {
     width: 400px;
   }
-  @media screen and (min-width: 800px) {
+}
+@media screen and (min-width: 800px) {
+  .wbs-list {
     width: 500px;
   }
 }
@@ -152,7 +155,10 @@ body {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  @media screen and (min-width: 500px) {
+}
+
+@media screen and (min-width: 500px) {
+  .wbs-cardBottom {
     flex-direction: row;
   }
 }
@@ -160,10 +166,17 @@ body {
   display: flex;
   justify-content: center;
   gap: 0.5rem;
+}
 
-  @media screen and (min-width: 500px) {
+@media screen and (min-width: 500px) {
+  .wbs-btn_wrp {
     align-items: center;
   }
+}
+.wbs-btn__bottom {
+  outline: 1px solid transparent;
+  height: 30px;
+  border-radius: 5px;
 }
 .wbs-btn__edit {
   border: 1px solid green;
@@ -175,18 +188,15 @@ body {
   background-color: rgb(14, 91, 14);
   border-color: rgb(14, 91, 14);
 }
+
 .wbs-btn__delete {
   border: 1px solid red;
   color: white;
   background-color: red;
   width: 60px;
 }
-.wbs-btn__delete:is(:focus, :hover) {
+.wbs-btn__delete:focus,
+.wbs-btn__delete:hover {
   background-color: rgb(154, 18, 18);
   border-color: rgb(154, 18, 18);
-}
-.wbs-btn__bottom {
-  outline: 1px solid transparent;
-  height: 30px;
-  border-radius: 5px;
 }

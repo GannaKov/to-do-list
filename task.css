@@ -4,14 +4,17 @@ body {
 .wbs-container {
   margin-top: 3rem;
   width: 100%;
-  @media screen and (min-width: 500px) {
+}
+@media screen and (min-width: 500px) {
+  .wbs-container {
     width: 400px;
   }
-  @media screen and (min-width: 800px) {
+}
+@media screen and (min-width: 800px) {
+  .wbs-container {
     width: 500px;
   }
 }
-
 .wbsGoBack-btn {
   display: flex;
   justify-content: center;
@@ -51,7 +54,4 @@ body {
 }
 .wbsGoBack-link:is(:hover, :focus) {
   color: white;
-}
-.wbs-openTask__btn {
-  font-size: 0.9rem;
 }
