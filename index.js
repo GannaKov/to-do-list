@@ -158,6 +158,8 @@ function deleteTask(item) {
 }
 
 function editTask(item) {
+  formSection.classList.remove("hidden");
+  listAddBtn.classList.add("hidden");
   const title = item.querySelector(".wbs-item__title");
   const task = item.querySelector(".wbs-item__text");
   taskNameInput.value = title.textContent;
