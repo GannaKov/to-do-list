@@ -1,3 +1,8 @@
+html,
+body,
+main {
+  height: 100%;
+}
 body {
   font-family: "Roboto";
 }
@@ -9,7 +14,37 @@ body {
   flex-direction: column;
   align-items: center;
 }
-
+.start__section {
+  height: 100%;
+}
+.start__section.hidden {
+  display: none;
+}
+.wbs-start__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4rem;
+}
+.wbs-start__text {
+}
+.wbs-start__btnAdd {
+}
+.wbs-start__img {
+  width: 200px;
+}
+.list__section.hidden {
+  display: none;
+}
+/* .list__section {
+  display: flex;
+} */
+.wbs-list__btnAdd {
+  margin-bottom: 2rem;
+}
+.wbs-list__btnAdd.hidden {
+  display: none;
+}
 .dropdown {
   font-size: 1.1rem;
   width: 159px;
@@ -23,8 +58,13 @@ body {
   justify-content: center;
   margin-bottom: 3rem;
 } */
-
-.wbs-form.visible {
+.form__section.hidden {
+  display: none;
+}
+/* .form__section.visible {
+  display: flex;
+} */
+.wbs-form {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -32,7 +72,7 @@ body {
   font-size: 1rem;
 }
 @media only screen and (min-width: 800px) {
-  .wbs-form.visible {
+  .wbs-form {
     width: 700px;
   }
 }

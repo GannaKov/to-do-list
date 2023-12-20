@@ -3,15 +3,42 @@ const form = document.querySelector(".wbs-form");
 const list = document.querySelector(".wbs-list");
 const taskNameInput = document.querySelector("#task_name");
 const taskInput = document.querySelector("#task");
+const startSection = document.querySelector(".start__section");
+const startAddBtn = document.querySelector(".wbs-start__btnAdd");
+const listSection = document.querySelector(".list__section");
+const listAddBtn = document.querySelector(".wbs-list__btnAdd");
+const formSection = document.querySelector(".form__section");
 document.addEventListener("DOMContentLoaded", formControl());
-
+startAddBtn.addEventListener("click", onStartBtnClick);
+listAddBtn.addEventListener("click", onListBtnClick);
 function arrControl() {
   const savedToDoList = JSON.parse(localStorage.getItem("toDoList"));
   toDoList = savedToDoList?.length ? [...savedToDoList] : [];
-
-  toDoList.length > 0 && renderTask(toDoList);
+  checkArrLength(toDoList);
+  //toDoList.length > 0 ? renderTask(toDoList) : renderStartPage();
 }
 arrControl();
+
+function checkArrLength(arr) {
+  console.log("in checkArrLength");
+  arr.length > 0 ? renderTask(arr) : renderStartPage();
+}
+
+function renderStartPage() {
+  console.log("in renderStart");
+  startSection.classList.remove("hidden");
+  listSection.classList.add("hidden");
+}
+
+function onStartBtnClick() {
+  console.log("onStartBtnClick");
+  formSection.classList.remove("hidden");
+  startSection.classList.add("hidden");
+}
+function onListBtnClick() {
+  formSection.classList.remove("hidden");
+  listAddBtn.classList.add("hidden");
+}
 //--------------------
 
 function formControl() {
@@ -33,6 +60,7 @@ function onSubmitClick(e) {
       checked: false,
     });
 
+    formSection.classList.add("hidden");
     renderTask(toDoList);
     taskName.value = "";
     task.value = "";
@@ -41,8 +69,10 @@ function onSubmitClick(e) {
 }
 
 function renderTask(arr) {
+  console.log("renderTask");
   list.innerHTML = "";
-
+  listSection.classList.remove("hidden");
+  listAddBtn.classList.remove("hidden");
   const markup = arr
     .map(
       (item, index) => `<li class="wbs-item ${
@@ -123,7 +153,8 @@ function deleteTask(item) {
   item.remove();
   toDoList.splice(item.dataset.ind, 1);
   localStorage.setItem("toDoList", JSON.stringify(toDoList));
-  renderTask(toDoList);
+  checkArrLength(toDoList);
+  // renderTask(toDoList);
 }
 
 function editTask(item) {
