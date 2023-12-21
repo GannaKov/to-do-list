@@ -12,4 +12,5 @@ export const refs = {
   dropdown: document.querySelector(".dropdown"),
   dropdownBtn: document.querySelector("#dropdownMenuButton1"),
   oneTask: document.querySelector(".wbs-container"),
+  toDoList: [],
 };
