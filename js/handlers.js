@@ -38,7 +38,6 @@ export function onItemClick(e) {
 }
 
 export function onStartBtnClick() {
-  console.log("onStartBtnClick");
   refs.formSection.classList.remove("hidden");
   refs.startSection.classList.add("hidden");
 }

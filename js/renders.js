@@ -2,7 +2,6 @@ import { refs } from "./reference.js";
 import { addListener } from "./customFunctions.js";
 
 export function renderStartPage() {
-  console.log("in renderStart");
   refs.startSection.classList.remove("hidden");
   refs.listSection.classList.add("hidden");
 }

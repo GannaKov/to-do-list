@@ -24,7 +24,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 4rem;
 }
 .wbs-start__text {
   font-size: 1.2rem;
@@ -40,6 +39,8 @@ body {
   border: 2px solid black;
   border-radius: 5px;
   background-color: white;
+  -webkit-box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.51);
+  box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.51);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .wbs-start__btnAdd:is(:hover, :focus) {
@@ -51,11 +52,22 @@ body {
 .list__section.hidden {
   display: none;
 }
-/* .list__section {
-  display: flex;
-} */
+
 .wbs-list__btnAdd {
   margin-bottom: 2rem;
+  margin-top: 2rem;
+  width: 90px;
+  font-size: 1.1rem;
+  outline: 1px solid transparent;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.12),
+    1px 1px 2px 0 rgba(0, 0, 0, 0.08), 2px 3px 2px 0 rgba(0, 0, 0, 0.1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.wbs-list__btnAdd:is(:hover, :focus) {
+  transform: scale(1.15);
 }
 .wbs-list__btnAdd.hidden {
   display: none;
@@ -68,17 +80,11 @@ body {
 .dropdown-toggle {
   width: 100%;
 }
-/* .wbs-form__wrp {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 3rem;
-} */
+
 .form__section.hidden {
   display: none;
 }
-/* .form__section.visible {
-  display: flex;
-} */
+
 .wbs-form {
   width: 100%;
   display: flex;
@@ -109,12 +115,14 @@ body {
 .wbs-textArea {
   resize: none;
   padding: 0.5rem;
+  border: 1px solid grey;
   border-radius: 5px;
   outline: 1px solid transparent;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .wbs-input:is(:focus, :hover),
 .wbs-textArea:is(:focus, :hover) {
-  border: 1px solid rgb(58, 58, 209);
+  border-color: rgb(58, 58, 209);
 }
 .wbs-btn {
   width: 90px;
@@ -126,11 +134,16 @@ body {
   border: 1px solid blue;
   margin: 0 auto;
   font-size: 1.1rem;
+  -webkit-box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.51);
+  box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.51);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .wbs-btn:is(:focus, :hover) {
   background-color: rgb(16, 16, 129);
-  border: 1px solid rgb(16, 16, 129);
+  border-color: rgb(16, 16, 129);
 }
+/* ------------------- */
 .wbs-list {
   width: 100%;
 }
@@ -145,12 +158,11 @@ body {
   }
 }
 .wbs-item {
-  /* display: flex;
-  flex-direction: column; */
-
   border: 0.5px solid gray;
+  -webkit-box-shadow: 3px 5px 9px -2px rgba(0, 0, 0, 0.58);
+  box-shadow: 3px 5px 9px -2px rgba(0, 0, 0, 0.58);
   border-radius: 5px;
-  padding: 1rem 1rem 2rem;
+  padding: 1rem 2rem 2rem;
 }
 .wbs-item:not(:last-child) {
   margin-bottom: 2rem;
@@ -161,25 +173,30 @@ body {
   align-items: center;
   margin-bottom: 1.5rem;
 }
-.wbs-card {
-}
+/* .wbs-card {
+} */
 .wbs-openTask__btn {
   outline: 1px solid transparent;
   background-color: white;
-  border-radius: 10%;
+  border-radius: 8px;
   border: 1px solid rgb(65, 62, 62);
   color: green;
-  /* margin-bottom: 0.5rem; */
   font-size: 0.9rem;
   height: 36px;
   width: 100px;
+  -webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.51);
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.51);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .wbs-openTask__btn:is(:focus, :hover) {
   color: white;
   background-color: green;
+  border-color: green;
 }
-.wbs-checkBox {
-}
+/* .wbs-checkBox {
+} */
 .wbs-item__title {
   margin: 0 auto;
   font-weight: 700;
@@ -247,16 +264,20 @@ body {
   height: 30px;
   border-radius: 5px;
   font-size: 0.8rem;
+  -webkit-box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.51);
+  box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.51);
 }
 .wbs-btn__edit {
-  border: 1px solid green;
+  border: 1px solid rgb(2, 161, 2);
   color: white;
-  background-color: green;
+  background-color: rgb(2, 161, 2);
   width: 50px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .wbs-btn__edit:is(:focus, :hover) {
-  background-color: rgb(14, 91, 14);
-  border-color: rgb(14, 91, 14);
+  background-color: green;
+  border-color: green;
 }
 
 .wbs-btn__delete {
@@ -264,6 +285,8 @@ body {
   color: white;
   background-color: red;
   width: 60px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .wbs-btn__delete:focus,
 .wbs-btn__delete:hover {
