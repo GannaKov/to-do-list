@@ -27,14 +27,23 @@ body {
   margin-top: 4rem;
 }
 .wbs-start__text {
+  font-size: 1.2rem;
   margin-bottom: 1rem;
+}
+.wbs-start__text:last-of-type {
+  margin-bottom: 2rem;
 }
 .wbs-start__btnAdd {
   width: 70px;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   outline: 1px solid transparent;
   border: 2px solid black;
   border-radius: 5px;
+  background-color: white;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.wbs-start__btnAdd:is(:hover, :focus) {
+  transform: scale(1.25);
 }
 .wbs-start__img {
   width: 200px;
