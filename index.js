@@ -1,17 +1,19 @@
-const refs = {
-  form: document.querySelector(".wbs-form"),
-  list: document.querySelector(".wbs-list"),
-  taskNameInput: document.querySelector("#task_name"),
-  taskInput: document.querySelector("#task"),
-  startSection: document.querySelector(".start__section"),
-  startAddBtn: document.querySelector(".wbs-start__btnAdd"),
-  listSection: document.querySelector(".list__section"),
-  listAddBtn: document.querySelector(".wbs-list__btnAdd"),
-  formSection: document.querySelector(".form__section"),
-  myDropdownMenu: document.querySelector(".dropdown-menu"),
-  dropdown: document.querySelector(".dropdown"),
-  dropdownBtn: document.querySelector("#dropdownMenuButton1"),
-};
+import { refs } from "./js/reference.js";
+
+// const refs = {
+//   form: document.querySelector(".wbs-form"),
+//   list: document.querySelector(".wbs-list"),
+//   taskNameInput: document.querySelector("#task_name"),
+//   taskInput: document.querySelector("#task"),
+//   startSection: document.querySelector(".start__section"),
+//   startAddBtn: document.querySelector(".wbs-start__btnAdd"),
+//   listSection: document.querySelector(".list__section"),
+//   listAddBtn: document.querySelector(".wbs-list__btnAdd"),
+//   formSection: document.querySelector(".form__section"),
+//   myDropdownMenu: document.querySelector(".dropdown-menu"),
+//   dropdown: document.querySelector(".dropdown"),
+//   dropdownBtn: document.querySelector("#dropdownMenuButton1"),
+// };
 let toDoList = [];
 // const form = document.querySelector(".wbs-form");
 // const list = document.querySelector(".wbs-list");
@@ -118,7 +120,7 @@ function renderTask(arr) {
                 <!-- </label> -->
               </div>
               <div class="wbs-cardBottom">
-                <p class="wbs-item__text">${item.task}</p>
+                <p class="wbs-item__text short-task">${item.task}</p>
                 <div class="wbs-btn_wrp">
                   <button type="button" class="wbs-btn__bottom wbs-btn__edit">
                     Edit
@@ -253,7 +255,7 @@ function renderSortedArr(arr, boolean) {
                 <!-- </label> -->
               </div>
               <div class="wbs-cardBottom">
-                <p class="wbs-item__text">${item.task}</p>
+                <p class="wbs-item__text short-task">${item.task}</p>
                 <div class="wbs-btn_wrp">
                   <button type="button" class="wbs-btn__bottom wbs-btn__edit">
                     Edit

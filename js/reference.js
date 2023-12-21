@@ -1,0 +1,15 @@
+export const refs = {
+  form: document.querySelector(".wbs-form"),
+  list: document.querySelector(".wbs-list"),
+  taskNameInput: document.querySelector("#task_name"),
+  taskInput: document.querySelector("#task"),
+  startSection: document.querySelector(".start__section"),
+  startAddBtn: document.querySelector(".wbs-start__btnAdd"),
+  listSection: document.querySelector(".list__section"),
+  listAddBtn: document.querySelector(".wbs-list__btnAdd"),
+  formSection: document.querySelector(".form__section"),
+  myDropdownMenu: document.querySelector(".dropdown-menu"),
+  dropdown: document.querySelector(".dropdown"),
+  dropdownBtn: document.querySelector("#dropdownMenuButton1"),
+  oneTask: document.querySelector(".wbs-container"),
+};

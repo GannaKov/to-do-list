@@ -1,5 +1,6 @@
+import { refs } from "./js/reference.js";
 const savedToDoList = JSON.parse(localStorage.getItem("toDoList"));
-const oneTask = document.querySelector(".wbs-container");
+//const oneTask = document.querySelector(".wbs-container");
 
 function renderTask() {
   const params = new URLSearchParams(window.location.search);
@@ -36,7 +37,7 @@ function renderTask() {
                 </div>
               </div>
             </div>`;
-  oneTask.insertAdjacentHTML("afterbegin", markup);
+  refs.oneTask.insertAdjacentHTML("afterbegin", markup);
 }
 
 renderTask();
