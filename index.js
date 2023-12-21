@@ -1,16 +1,38 @@
+const refs = {
+  form: document.querySelector(".wbs-form"),
+  list: document.querySelector(".wbs-list"),
+  taskNameInput: document.querySelector("#task_name"),
+  taskInput: document.querySelector("#task"),
+  startSection: document.querySelector(".start__section"),
+  startAddBtn: document.querySelector(".wbs-start__btnAdd"),
+  listSection: document.querySelector(".list__section"),
+  listAddBtn: document.querySelector(".wbs-list__btnAdd"),
+  formSection: document.querySelector(".form__section"),
+  myDropdownMenu: document.querySelector(".dropdown-menu"),
+  dropdown: document.querySelector(".dropdown"),
+  dropdownBtn: document.querySelector("#dropdownMenuButton1"),
+};
 let toDoList = [];
-const form = document.querySelector(".wbs-form");
-const list = document.querySelector(".wbs-list");
-const taskNameInput = document.querySelector("#task_name");
-const taskInput = document.querySelector("#task");
-const startSection = document.querySelector(".start__section");
-const startAddBtn = document.querySelector(".wbs-start__btnAdd");
-const listSection = document.querySelector(".list__section");
-const listAddBtn = document.querySelector(".wbs-list__btnAdd");
-const formSection = document.querySelector(".form__section");
-document.addEventListener("DOMContentLoaded", formControl());
-startAddBtn.addEventListener("click", onStartBtnClick);
-listAddBtn.addEventListener("click", onListBtnClick);
+// const form = document.querySelector(".wbs-form");
+// const list = document.querySelector(".wbs-list");
+// const taskNameInput = document.querySelector("#task_name");
+// const taskInput = document.querySelector("#task");
+// const startSection = document.querySelector(".start__section");
+// const startAddBtn = document.querySelector(".wbs-start__btnAdd");
+// const listSection = document.querySelector(".list__section");
+// const listAddBtn = document.querySelector(".wbs-list__btnAdd");
+// const formSection = document.querySelector(".form__section");
+
+// const myDropdownMenu = document.querySelector(".dropdown-menu");
+// const dropdown = document.querySelector(".dropdown");
+// const dropdownBtn = document.querySelector("#dropdownMenuButton1");
+
+//document.addEventListener("DOMContentLoaded", formControl());
+
+refs.startAddBtn.addEventListener("click", onStartBtnClick);
+refs.listAddBtn.addEventListener("click", onListBtnClick);
+refs.form.addEventListener("submit", onSubmitClick);
+
 function arrControl() {
   const savedToDoList = JSON.parse(localStorage.getItem("toDoList"));
   toDoList = savedToDoList?.length ? [...savedToDoList] : [];
@@ -26,24 +48,24 @@ function checkArrLength(arr) {
 
 function renderStartPage() {
   console.log("in renderStart");
-  startSection.classList.remove("hidden");
-  listSection.classList.add("hidden");
+  refs.startSection.classList.remove("hidden");
+  refs.listSection.classList.add("hidden");
 }
 
 function onStartBtnClick() {
   console.log("onStartBtnClick");
-  formSection.classList.remove("hidden");
-  startSection.classList.add("hidden");
+  refs.formSection.classList.remove("hidden");
+  refs.startSection.classList.add("hidden");
 }
 function onListBtnClick() {
-  formSection.classList.remove("hidden");
-  listAddBtn.classList.add("hidden");
+  refs.formSection.classList.remove("hidden");
+  refs.listAddBtn.classList.add("hidden");
 }
 //--------------------
 
-function formControl() {
-  form.addEventListener("submit", onSubmitClick);
-}
+// function formControl() {
+//   refs.form.addEventListener("submit", onSubmitClick);
+// }
 
 function onSubmitClick(e) {
   e.preventDefault();
@@ -60,7 +82,7 @@ function onSubmitClick(e) {
       checked: false,
     });
 
-    formSection.classList.add("hidden");
+    refs.formSection.classList.add("hidden");
     renderTask(toDoList);
     taskName.value = "";
     task.value = "";
@@ -70,9 +92,9 @@ function onSubmitClick(e) {
 
 function renderTask(arr) {
   console.log("renderTask");
-  list.innerHTML = "";
-  listSection.classList.remove("hidden");
-  listAddBtn.classList.remove("hidden");
+  refs.list.innerHTML = "";
+  refs.listSection.classList.remove("hidden");
+  refs.listAddBtn.classList.remove("hidden");
   const markup = arr
     .map(
       (item, index) => `<li class="wbs-item ${
@@ -110,7 +132,7 @@ function renderTask(arr) {
           </li>`
     )
     .join("");
-  list.insertAdjacentHTML("beforeend", markup);
+  refs.list.insertAdjacentHTML("beforeend", markup);
   addListener(arr);
 }
 function addListener(arr) {
@@ -158,12 +180,12 @@ function deleteTask(item) {
 }
 
 function editTask(item) {
-  formSection.classList.remove("hidden");
-  listAddBtn.classList.add("hidden");
+  refs.formSection.classList.remove("hidden");
+  refs.listAddBtn.classList.add("hidden");
   const title = item.querySelector(".wbs-item__title");
   const task = item.querySelector(".wbs-item__text");
-  taskNameInput.value = title.textContent;
-  taskInput.value = task.textContent;
+  refs.taskNameInput.value = title.textContent;
+  refs.taskInput.value = task.textContent;
   toDoList.splice(item.dataset.ind, 1);
   localStorage.setItem("toDoList", JSON.stringify(toDoList));
 }
@@ -185,15 +207,11 @@ function openTask(item) {
 }
 //---------------
 
-const myDropdownMenu = document.querySelector(".dropdown-menu");
-const dropdown = document.querySelector(".dropdown");
-const dropdownBtn = document.querySelector("#dropdownMenuButton1");
-
-myDropdownMenu.addEventListener("click", onDropdownClick);
+refs.myDropdownMenu.addEventListener("click", onDropdownClick);
 
 function onDropdownClick(e) {
-  dropdownBtn.textContent = e.target.textContent;
-  const itemArr = [...myDropdownMenu.children];
+  refs.dropdownBtn.textContent = e.target.textContent;
+  const itemArr = [...refs.myDropdownMenu.children];
 
   itemArr.forEach((item) => {
     item.firstElementChild.classList.remove("active");
@@ -203,21 +221,15 @@ function onDropdownClick(e) {
     renderTask(toDoList);
   }
   if (e.target.getAttribute("id") === "done") {
-    // const filteredArr = toDoList.filter((item) => item.checked === true);
-
-    // renderTask(filteredArr);
     renderSortedArr(toDoList, true);
   }
   if (e.target.getAttribute("id") === "not_done") {
-    // const filteredArr = toDoList.filter((item) => item.checked === false);
-
-    // renderTask(filteredArr);
     renderSortedArr(toDoList, false);
   }
 }
 
 function renderSortedArr(arr, boolean) {
-  list.innerHTML = "";
+  refs.list.innerHTML = "";
 
   const filteredItems = arr.reduce((acc, item, index) => {
     if (item.checked === boolean) {
@@ -257,6 +269,6 @@ function renderSortedArr(arr, boolean) {
     }
     return acc;
   }, []);
-  list.insertAdjacentHTML("beforeend", filteredItems.join(""));
+  refs.list.insertAdjacentHTML("beforeend", filteredItems.join(""));
   addListener(arr);
 }

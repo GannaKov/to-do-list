@@ -27,8 +27,14 @@ body {
   margin-top: 4rem;
 }
 .wbs-start__text {
+  margin-bottom: 1rem;
 }
 .wbs-start__btnAdd {
+  width: 70px;
+  margin-bottom: 1rem;
+  outline: 1px solid transparent;
+  border: 2px solid black;
+  border-radius: 5px;
 }
 .wbs-start__img {
   width: 200px;
