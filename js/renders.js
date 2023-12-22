@@ -18,6 +18,7 @@ export function renderTasks(arr) {
             <div class="wbs-card">
             <button class="wbs-openTask__btn" type="button">Open Task</button>
               <div class="wbs-inn_wrp">
+               <input class="wbs-item__input hidden" type="text" />
                 <h2 class="wbs-item__title">${item.name}</h2>
                 <span class="wbs-item__checkbox checkbox">
                  <svg
@@ -28,12 +29,14 @@ export function renderTasks(arr) {
               <path class="checkbox" d="M27 4l-15 15-7-7-5 5 12 12 20-20z"></path>
             </svg>
                 </span>
-                <!-- <label class="wbs-checkBox"> -->
-               <!-- <input type="checkbox" class="wbs-item__checkbox" name="status" />-->
-                <!-- </label> -->
               </div>
               <div class="wbs-cardBottom">
-                <p class="wbs-item__text short-task">${item.task}</p>
+              <textarea
+                class="wbs-item__textArea hidden"
+                id="task"
+                placeholder="Please enter your task..."
+              ></textarea>
+                <pre class="wbs-item__text short-task">${item.task}</pre>
                 <div class="wbs-btn_wrp">
                   <button type="button" class="wbs-btn__bottom wbs-btn__edit">
                     Edit

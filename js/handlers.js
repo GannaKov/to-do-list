@@ -18,8 +18,8 @@ export function onItemClick(e) {
   if (e.target.classList.contains("wbs-btn__delete")) {
     const item = e.currentTarget;
     Notiflix.Confirm.show(
-      "Notiflix Confirm",
-      "Are you sure??",
+      "Confirm",
+      "Are you sure?",
       "Yes",
       "No",
       okCb(item),

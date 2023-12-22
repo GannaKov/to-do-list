@@ -1,0 +1,45 @@
+.wbs-item__input {
+  padding-left: 30px;
+  margin: 0 auto;
+  border-radius: 8px;
+  width: 200px;
+  height: 35px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  outline: 1px solid transparent;
+  border: 1px solid black;
+}
+.wbs-item__input.hidden {
+  display: none;
+}
+
+.wbs-item__title.hidden {
+  display: none;
+}
+.wbs-item__textArea {
+  width: 100%;
+  resize: none;
+  padding: 0.5rem;
+  border: 1px solid grey;
+  border-radius: 5px;
+  outline: 1px solid transparent;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  /* white-space: pre-wrap;
+  word-wrap: break-word; */
+}
+.wbs-item__textArea.hidden {
+  display: none;
+}
+.wbs-item__text.short-task {
+  margin: 0;
+  white-space: normal;
+  text-overflow: ellipsis;
+}
+.wbs-item__text.hidden {
+  display: none;
+}
+.wbs-cardBottom {
+  gap: 10px;
+}
