@@ -176,6 +176,7 @@ body {
 /* .wbs-card {
 } */
 .wbs-openTask__btn {
+  margin-bottom: 1rem;
   outline: 1px solid transparent;
   background-color: white;
   border-radius: 8px;
@@ -190,6 +191,11 @@ body {
     border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+@media screen and (min-width: 800px) {
+  .wbs-openTask__btn {
+    margin-bottom: 0;
+  }
+}
 .wbs-openTask__btn:is(:focus, :hover) {
   color: white;
   background-color: green;
@@ -198,15 +204,21 @@ body {
 /* .wbs-checkBox {
 } */
 .wbs-item__input {
+  width: 190px;
   padding-left: 30px;
   margin: 0 auto;
   border-radius: 8px;
-  width: 200px;
+
   height: 35px;
   font-size: 1.5rem;
   font-weight: 700;
   outline: 1px solid transparent;
   border: 1px solid black;
+}
+@media screen and (min-width: 800px) {
+  .wbs-item__input {
+    width: 200px;
+  }
 }
 .wbs-item__input.hidden {
   display: none;
@@ -247,11 +259,13 @@ body {
   border: 1px solid grey;
   border-radius: 5px;
   outline: 1px solid transparent;
-  height: auto;
   overflow-x: hidden;
   overflow-y: hidden;
   white-space: pre-wrap;
   word-wrap: break-word;
+  font-size: 1.1rem;
+  font-family: "Roboto";
+  line-height: 1.46;
 }
 .wbs-item__textArea.hidden {
   display: none;
@@ -259,6 +273,10 @@ body {
 .wbs-item__text {
   margin-bottom: 1rem;
   white-space: normal;
+  font-size: 1.1rem;
+  margin-top: 0;
+  font-family: "Roboto";
+  line-height: 1.46;
 
   @media screen and (min-width: 500px) {
     margin-bottom: 0;
@@ -332,4 +350,9 @@ body {
 .wbs-btn__delete:hover {
   background-color: rgb(154, 18, 18);
   border-color: rgb(154, 18, 18);
+}
+.wbs-item__no-text {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-top: 2rem;
 }

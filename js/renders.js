@@ -74,9 +74,6 @@ export function renderSortedArr(arr, boolean) {
               <path class="checkbox" d="M27 4l-15 15-7-7-5 5 12 12 20-20z"></path>
             </svg>
                 </span>
-                <!-- <label class="wbs-checkBox"> -->
-               <!-- <input type="checkbox" class="wbs-item__checkbox" name="status" />-->
-                <!-- </label> -->
               </div>
               <div class="wbs-cardBottom">
                 <p class="wbs-item__text short-task">${item.task}</p>
@@ -95,7 +92,12 @@ export function renderSortedArr(arr, boolean) {
     }
     return acc;
   }, []);
-  refs.list.insertAdjacentHTML("beforeend", filteredItems.join(""));
+  filteredItems.length > 0
+    ? refs.list.insertAdjacentHTML("beforeend", filteredItems.join(""))
+    : refs.list.insertAdjacentHTML(
+        "beforeend",
+        `<li><p class="wbs-item__no-text">There is nothing in this list &#128527.</p></li>`
+      );
   addListener(arr);
 }
 //------------
@@ -133,12 +135,13 @@ export function renderOneTask(savedToDoList) {
                     <button type="button" class="wbs-btn__bottom wbs-btn__edit">
                       Edit
                     </button>
-                    <button type="button" class="wbs-btn__bottom wbs-btn__delete">
-                      Delete
-                    </button>
+                   
                   </div>
                 </div>
               </div>
             </div>`;
   refs.oneTask.insertAdjacentHTML("afterbegin", markup);
 }
+// <button type="button" class="wbs-btn__bottom wbs-btn__delete">
+//   Delete
+// </button>

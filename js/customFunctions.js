@@ -8,7 +8,7 @@ import {
   onSubmitClick,
 } from "./handlers.js";
 
-import { renderStartPage, renderTasks } from "./renders.js";
+import { renderStartPage, renderTasks, renderOneTask } from "./renders.js";
 
 export function getFromLocalStorage() {
   return JSON.parse(localStorage.getItem("toDoList"));
@@ -18,7 +18,11 @@ export function arrControl() {
   refs.toDoList = savedToDoList?.length ? [...savedToDoList] : [];
   checkArrLength(refs.toDoList);
 }
-
+export function arrControlOneTask() {
+  const savedToDoList = getFromLocalStorage();
+  refs.toDoList = savedToDoList?.length ? [...savedToDoList] : [];
+  renderOneTask(savedToDoList);
+}
 export function checkArrLength(arr) {
   arr.length > 0 ? renderTasks(arr) : renderStartPage();
 }
@@ -29,7 +33,10 @@ export function addListener(arr) {
     taskItems.forEach((item) => item.addEventListener("click", onItemClick));
   }
 }
-
+export function addListenerOneTask() {
+  const taskItem = document.querySelector(".wbs-item");
+  taskItem.addEventListener("click", onItemClick);
+}
 export function eventListenerControl() {
   refs.startAddBtn.addEventListener("click", onStartBtnClick);
   refs.listAddBtn.addEventListener("click", onListBtnClick);
@@ -78,7 +85,7 @@ export function editTask(item) {
     refs.toDoList[item.dataset.ind] = {
       name: title.textContent,
       task: task.textContent,
-      checked: refs.toDoList[item.dataset.ind],
+      checked: refs.toDoList[item.dataset.ind].checked,
     };
     localStorage.setItem("toDoList", JSON.stringify(refs.toDoList));
   }
