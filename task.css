@@ -50,3 +50,6 @@ body {
 
   font-size: 1.1rem;
 } */
+.wbs-item__text.hidden {
+  display: none;
+}

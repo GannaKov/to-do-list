@@ -110,6 +110,7 @@ export function renderOneTask(savedToDoList) {
               <div class="wbs-card">
               
                 <div class="wbs-inn_wrp">
+                <input class="wbs-item__input hidden" type="text" />
                   <h2 class="wbs-item__title">${savedToDoList[id].name}</h2>
                   <span class="wbs-item__checkbox checkbox">
                    <svg
@@ -122,7 +123,12 @@ export function renderOneTask(savedToDoList) {
                   </span>
                 </div>
                 <div class="wbs-cardBottom">
-                  <p class="wbs-item__text">${savedToDoList[id].task}</p>
+                 <textarea
+                class="wbs-item__textArea hidden"
+                id="task"
+                placeholder="Please enter your task..."
+              ></textarea>
+                  <pre class="wbs-item__text">${savedToDoList[id].task}</pre>
                   <div class="wbs-btn_wrp">
                     <button type="button" class="wbs-btn__bottom wbs-btn__edit">
                       Edit

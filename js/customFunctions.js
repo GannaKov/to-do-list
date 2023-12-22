@@ -75,6 +75,12 @@ export function editTask(item) {
     title.textContent = input.value;
     task.textContent = textarea.value;
     task.style.whiteSpace = "pre-wrap";
+    refs.toDoList[item.dataset.ind] = {
+      name: title.textContent,
+      task: task.textContent,
+      checked: refs.toDoList[item.dataset.ind],
+    };
+    localStorage.setItem("toDoList", JSON.stringify(refs.toDoList));
   }
 }
 export function checkBoxToggle(item) {
